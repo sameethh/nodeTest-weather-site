@@ -1,10 +1,5 @@
 console.log('Client side javascriot file is loaded')
 
-
-
-
-
-
 const weatherForm = document.querySelector('form')
 
 const search = document.querySelector('input')
@@ -31,7 +26,6 @@ weatherForm.addEventListener('submit' , (e) => {
             messageTwo.textContent = data.error
 
         }else {
-           // console.log(data)
             messageOne.textContent = data.Temperature + '. ' + data.forecast 
             messageTwo.textContent = data.loaction
         }
