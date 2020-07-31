@@ -75,7 +75,7 @@ app.get('/weather', (req,res) => {
                     error: 'unable to get the location'
                 })
             }else if (latitude,longitude,place_name){
-                forecast(longitude,latitude,(error,{temperature,feelslikeTemp,desc} ={}) => {
+                forecast(longitude,latitude,(error,{temperature,feelslikeTemp,desc,icons,humidity} ={}) => {
                       if(error){
                         res.send({
                             error: 'unable to get the forecast'
@@ -83,9 +83,11 @@ app.get('/weather', (req,res) => {
                       }else if(temperature,feelslikeTemp,desc) {
                         res.send({
                             address: req.query.address,
-                            Temperature : `Todays temperature is `+temperature+`. feels like `+ feelslikeTemp,
+                            Temperature : `It's currently `+temperature+`. It feels like `+ feelslikeTemp,
                             forecast : `forecast looks like `+desc,
-                            loaction : place_name
+                            humidity:` And humidity is `+humidity,
+                            weather_icon:icons,
+                            location : place_name
                         })
                       
                       }
